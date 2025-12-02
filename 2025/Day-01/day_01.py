@@ -1,4 +1,6 @@
-with open("day_01.txt") as f:
+from pathlib import Path
+current_dir = Path(__file__).parent
+with open(current_dir/"day_01.txt") as f:
     lines = f.read().splitlines()
 current, password1, password2 = 50, 0, 0
 for line in lines:
