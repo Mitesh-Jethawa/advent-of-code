@@ -1,7 +1,5 @@
 from pathlib import Path
-current_dir = Path(__file__).parent
-with open(current_dir/"day_01.txt") as f:
-    lines = f.read().splitlines()
+lines = Path(Path(__file__).parent/"day_01.txt").read_text().splitlines()
 current, password1, password2 = 50, 0, 0
 for line in lines:
     direction, number = line[0], line[1:]

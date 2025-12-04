@@ -8,9 +8,7 @@ def highest_joltage(number: str, k: int):
         result += highest_digit
         start = number.find(highest_digit, start, end) + 1
     return int(result)
-current_dir = Path(__file__).parent
-with open(current_dir/"day_03.txt") as f:
-    numbers = f.read().splitlines()
-    password1 = sum([highest_joltage(str(number), 2) for number in numbers])
-    password2 = sum([highest_joltage(str(number), 12) for number in numbers])
-    print(password1, password2)
+numbers = Path(Path(__file__).parent/"day_03.txt").read_text().splitlines()
+password1 = sum([highest_joltage(str(number), 2) for number in numbers])
+password2 = sum([highest_joltage(str(number), 12) for number in numbers])
+print(password1, password2)

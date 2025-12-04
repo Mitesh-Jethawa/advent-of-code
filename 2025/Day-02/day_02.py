@@ -1,7 +1,5 @@
 from pathlib import Path
-current_dir = Path(__file__).parent
-with open(current_dir/"day_02.txt") as f:
-    number_list = f.read().split(",")
+number_list = Path(Path(__file__).parent/"day_02.txt").read_text().split(",")
 number_range_int: list[tuple[int, int]] = [(int(a), int(b)) for a, b in (x.split("-") for x in number_list)]
 password1, password2 = 0, 0
 invalid_ids = [int(str(number)*2) for number in range(1,100000)]
