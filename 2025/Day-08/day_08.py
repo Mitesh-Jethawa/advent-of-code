@@ -1,9 +1,7 @@
-import time
 from itertools import combinations
 from math import dist, prod
 from pathlib import Path
 from scipy.cluster.hierarchy import DisjointSet
-start = time.perf_counter()
 data = Path(Path(__file__).parent/"day_08.txt").read_text().splitlines()
 position_dictionary = {i:tuple(map(int, line.split(','))) for i,line in enumerate(data)}
 all_combinations = list(combinations(range(len(data)), 2))
@@ -23,4 +21,3 @@ for a, b in all_combinations:
     if total_sets == 1:
         print(position_dictionary[a][0]*position_dictionary[b][0])
         break
-print(time.perf_counter() - start)
